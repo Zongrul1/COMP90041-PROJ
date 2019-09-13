@@ -1,0 +1,207 @@
+============================================
+vis/result.rtx
+15:30:18_Tuesday_02_April_2019
+============================================
+Feedback:
+Your programs ("Nimsys.java" and "NimPlayer.java") have been submitted successfully. 
+Compiling your programs with "javac"...
+Your programs have been compiled successfully :-)
+Now, it's your responsibility to test your programs for correctness!
+Here is a simple test case, and the results:
+============================================
+Test for input file: in1
+Expected results:                                                       Your results:
+Welcome to Nim								Welcome to Nim
+
+Please enter Player 1's name:						Please enter Player 1's name:
+
+Please enter Player 2's name:						Please enter Player 2's name:
+
+Please enter upper bound of stone removal:				Please enter upper bound of stone removal:
+
+Please enter initial number of stones:					Please enter initial number of stones:
+
+12 stones left: * * * * * * * * * * * *					12 stones left: * * * * * * * * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+9 stones left: * * * * * * * * *					9 stones left: * * * * * * * * *
+Hans's turn - remove how many?						Hans's turn - remove how many?
+
+8 stones left: * * * * * * * *						8 stones left: * * * * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+7 stones left: * * * * * * *						7 stones left: * * * * * * *
+Hans's turn - remove how many?						Hans's turn - remove how many?
+
+5 stones left: * * * * *						5 stones left: * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+2 stones left: * *							2 stones left: * *
+Hans's turn - remove how many?						Hans's turn - remove how many?
+
+1 stones left: *							1 stones left: *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+Game Over								Game Over
+Hans wins!								Hans wins!
+
+Do you want to play again (Y/N):					Do you want to play again (Y/N):
+Please enter upper bound of stone removal:				Please enter upper bound of stone removal:
+
+Please enter initial number of stones:					Please enter initial number of stones:
+
+15 stones left: * * * * * * * * * * * * * * *				15 stones left: * * * * * * * * * * * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+14 stones left: * * * * * * * * * * * * * *				14 stones left: * * * * * * * * * * * * * *
+Hans's turn - remove how many?						Hans's turn - remove how many?
+
+12 stones left: * * * * * * * * * * * *					12 stones left: * * * * * * * * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+9 stones left: * * * * * * * * *					9 stones left: * * * * * * * * *
+Hans's turn - remove how many?						Hans's turn - remove how many?
+
+5 stones left: * * * * *						5 stones left: * * * * *
+Luke's turn - remove how many?						Luke's turn - remove how many?
+
+Game Over								Game Over
+Hans wins!								Hans wins!
+
+Do you want to play again (Y/N):					Do you want to play again (Y/N):
+Your results seem to be CORRECT :-).
+============================================
+Test for input file: in2
+Expected results:                                                       Your results:
+Welcome to Nim								Welcome to Nim
+
+Please enter Player 1's name:						Please enter Player 1's name:
+
+Please enter Player 2's name:						Please enter Player 2's name:
+
+Please enter upper bound of stone removal:				Please enter upper bound of stone removal:
+
+Please enter initial number of stones:					Please enter initial number of stones:
+
+15 stones left: * * * * * * * * * * * * * * *				15 stones left: * * * * * * * * * * * * * * *
+R2D2's turn - remove how many?						R2D2's turn - remove how many?
+
+14 stones left: * * * * * * * * * * * * * *				14 stones left: * * * * * * * * * * * * * *
+C3PO's turn - remove how many?						C3PO's turn - remove how many?
+
+12 stones left: * * * * * * * * * * * *					12 stones left: * * * * * * * * * * * *
+R2D2's turn - remove how many?						R2D2's turn - remove how many?
+
+9 stones left: * * * * * * * * *					9 stones left: * * * * * * * * *
+C3PO's turn - remove how many?						C3PO's turn - remove how many?
+
+5 stones left: * * * * *						5 stones left: * * * * *
+R2D2's turn - remove how many?						R2D2's turn - remove how many?
+
+Game Over								Game Over
+C3PO wins!								C3PO wins!
+
+Do you want to play again (Y/N):					Do you want to play again (Y/N):
+Your results seem to be CORRECT :-).
+============================================
+src/NimPlayer.java
+15:30:15_Tuesday_02_April_2019
+============================================
+//NimPlayer.java
+//Name:Zongru Li 
+//StudentID:947539
+public class NimPlayer { 
+	private String name;
+	public NimPlayer(String name)
+	{
+		this.name = name;
+	}
+	public int removeStone(int i)
+	{
+		return i;
+	}
+	public String Name()
+	{
+		return name;
+	}
+	public boolean WinOrNot(int i)
+	{
+		if (i == 0)
+		{
+			System.out.println("Game Over");
+			System.out.println(name + " wins!");
+			System.out.println();
+			return true;
+		}
+		else
+			return false;
+	}
+	public void Turn()
+	{
+		System.out.println(name + "\'s turn - remove how many?");//Player's turn
+		System.out.println();
+	}	
+}
+============================================
+src/Nimsys.java
+15:30:15_Tuesday_02_April_2019
+============================================
+//Nimsys.java
+//Name:Zongru Li 
+//StudentID:947539
+import java.util.Scanner;
+public class Nimsys {
+	public static void display(int Number){//display remaining stones
+		System.out.print(Number + " stones left:");
+		for (int i = 0;i < Number;i++){
+			System.out.print(" *");
+		}
+		System.out.println();
+	}	
+	public static void main(String[] args){
+		String again = "Y";
+		int Number,upperBound,removalNumber;
+		System.out.println("Welcome to Nim");
+		System.out.println();
+		//intialise information
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please enter Player 1's name:");
+		NimPlayer Player1 = new NimPlayer(s.nextLine());
+		System.out.println();
+		System.out.println("Please enter Player 2's name:");
+		NimPlayer Player2 = new NimPlayer(s.nextLine());
+		System.out.println();
+		while (true){
+			//initialise conditions
+			System.out.println("Please enter upper bound of stone removal:");
+			upperBound = s.nextInt();
+			System.out.println();
+			System.out.println("Please enter initial number of stones:");
+			Number = s.nextInt();
+			System.out.println();
+			display(Number);
+			//game start
+			while (true){
+				Player1.Turn();
+				removalNumber = Player1.removeStone(s.nextInt());
+				Number = Number - removalNumber;
+				if (Player2.WinOrNot(Number)){//judge win or not
+					break;		
+				}					
+				display(Number);
+				Player2.Turn();
+				removalNumber = Player2.removeStone(s.nextInt());
+				Number = Number - removalNumber;
+				if (Player1.WinOrNot(Number)){//judge win or not
+					break;			
+				}
+				display(Number);
+			}
+			System.out.println("Do you want to play again (Y/N):");//judge the game whether over
+			again = s.next();
+			if (again.equals("N")){
+				break;
+			}
+		}	
+	}
+}
